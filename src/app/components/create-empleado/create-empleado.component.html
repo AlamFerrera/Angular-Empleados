@@ -1,0 +1,33 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{titulo}}
+                        <div *ngIf="loading" class="spinner-border float-right" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                    </h3>
+                    <span *ngIf="submitted && createEmpleado.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON REQUERIDOS</span>
+                    <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="AddOrEdit()">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" formControlName="nombre" placeholder="Nombre">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" formControlName="apellido" placeholder="Apellido">
+                            </div>
+                        </div>
+                        
+                        <input type="tel" class="form-control form-control-lg mt-3" formControlName="documento" maxlength="11" placeholder="Documento">
+                        <input type="number" class="form-control form-control-lg mt-3" formControlName="salario" placeholder="Salario">
+                        <div class="mt-3">
+                            <button class="btn btn-danger btn-lg mr-2" routerLink="/">Volver</button>
+                            <button class="btn btn-success btn-lg">{{btnValue}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
